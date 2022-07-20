@@ -1,4 +1,4 @@
-"""#1 palindrome
+#1 palindrome
 num =int(input("Enter any number: "))
 reverse = int(str(num)[::-1])
 if num == reverse:
@@ -93,7 +93,7 @@ if prime:
 else:
     print("not prime")
 num=int(input("Enter Number: "))
-"""
+
 #9 area of triangle
 a = float(input('Enter first side: '))
 b = float(input('Enter second side: '))
