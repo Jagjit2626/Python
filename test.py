@@ -1,76 +1,62 @@
-class Person(object):
-    def _init_(self, name, id):
-        self.name = name
-        self.id = id
-    def Display(self):
-        print(self.name, self.id)
-emp = Person("Jagjit", 102)
-emp.Display()
-
-# single inheritance
-class Parent:
-    def func1(self):
-        print("This function is in parent class.")
-
-class Child(Parent):
-    def func2(self):
-        print("This function is in child class.")
-object = Child()
-object.func1()
-object.func2()
-
-# multiple inheritance
-class Mother:
-    mothername = ""
-    def mother(self):
-        print(self.mothername)
-class Father:
-    fathername = ""
-    def father(self):
-        print(self.fathername)
-class Son(Mother, Father):
-    def parents(self):
-        print("Father :", self.fathername)
-        print("Mother :", self.mothername)
-s1 = Son()
-s1.fathername = "Jasbir"
-s1.mothername = "Bhupinder"
-s1.parents()
-
-
-# polymorphism
-def add(x, y, z=0):
-    return x + y + z
-print(add(2, 3))
-print(add(2, 3, 4))
-# polymorphism
-class Human:
-    def intro(self):
-        print("hello Human")
-    def flight(self):
-        print("humans can fly fights")
-class pilot(Human):
-    def flight(self):
-        print("Pilots can fly")
-class airhostess(Human):
-    def flight(self):
-        print("airhostess do not fly")
-obj_hum = Human()
-obj_pil = pilot()
-obj_ah = airhostess()
-obj_hum.intro()
-obj_hum.flight()
-obj_pil.intro()
-obj_pil.flight()
-obj_ah.intro()
-
-#modules
-
-from math import *
-print("The value of pi is", pi)
-import os
-cwd = os.getcwd()
-print("Current working directory:", cwd)
-from datetime import date
-my_date = date(2022, 7, 20)
-print("Date", my_date)
+#Encapsulation
+class Computer:
+    def __init__(self):
+        self.__maxprice = 900
+    def sell(self):
+        print("Selling Price: {}".format(self.__maxprice))
+    def setMaxPrice(self, price):
+        self.__maxprice = price
+c = Computer()
+c.sell()
+c.__maxprice = 1000
+c.sell()
+c.setMaxPrice(1000)
+c.sell()
+#abstration
+from abc import ABC,abstractmethod
+class Car(ABC):
+    def mileage(self):
+        pass
+class Tesla(Car):
+    def mileage(self):
+        print("The mileage is 30kmph")
+class Suzuki(Car):
+    def mileage(self):
+        print("The mileage is 25kmph ")
+class Duster(Car):
+    def mileage(self):
+        print("The mileage is 24kmph ")
+class Renault(Car):
+    def mileage(self):
+        print("The mileage is 27kmph ")
+t = Tesla()
+t.mileage()
+r = Renault()
+r.mileage()
+s = Suzuki()
+s.mileage()
+d = Duster()
+d.mileage()
+#try
+try:
+  print(x)
+except:
+  print("An exception occurred")
+#else
+try:
+  print("Hello")
+except:
+  print("Something went wrong")
+else:
+  print("Nothing went wrong")
+#finally
+try:
+  print(x)
+except:
+  print("Something went wrong")
+finally:
+  print("The 'try except' is finished")
+#error raising
+x = "hello"
+if not type(x) is int:
+     raise TypeError("Only integers are allowed")
